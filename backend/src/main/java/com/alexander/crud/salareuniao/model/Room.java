@@ -12,7 +12,9 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.TimeZone;
 
 @Entity
 @Getter
@@ -30,10 +32,10 @@ public class Room {
     @Size(min = 3)
     private String name;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     @Column(nullable = false)
-    private LocalDate date;
+    private LocalDateTime date;
 
     @JsonFormat(pattern = "HH:mm")
     @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)

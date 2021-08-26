@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RegistrationRoomsComponent } from './registration-rooms/registration-rooms.component';
 import { ListRoomsComponent } from './list-rooms/list-rooms.component';
 import { DetailRoomsComponent } from './detail-rooms/detail-rooms.component';
+import { MaterialModule } from '../shared/material/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -13,7 +15,9 @@ import { DetailRoomsComponent } from './detail-rooms/detail-rooms.component';
     DetailRoomsComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MaterialModule,
+    ReactiveFormsModule
   ],
   exports: [
     RegistrationRoomsComponent,

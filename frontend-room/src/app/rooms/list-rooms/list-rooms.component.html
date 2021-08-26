@@ -1,1 +1,19 @@
-<p>list-rooms works!</p>
+<div  class="home-content" *ngIf="rooms.length; else semRegistro">
+  <mat-card class="home-card" *ngFor="let room of rooms">
+    <mat-card-header>
+      <div mat-card-avatar></div>
+      <mat-card-title>{{ room.name }}</mat-card-title>
+      <mat-card-subtitle>{{ room.date | date: 'dd/MM/yyyy' : 'UTC' }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <p>Começa as {{ room.startHour }} e vai até {{ room.endHour }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button color="accent" mat-raised-button (click)="detail(room.id)">Detalhes</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<ng-template #semRegistro>
+  <h1 class="full-width main-div">Nenhum registro encontrado!</h1>
+</ng-template>
